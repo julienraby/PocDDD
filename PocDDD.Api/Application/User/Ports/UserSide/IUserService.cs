@@ -2,7 +2,7 @@
 
 namespace PocDDD.Api.Application.User.Ports.UserSide;
 
-public interface IPocDDDUserService
+public interface IUserService
 {
-    Task<PocDDDUser> GetPocDDDUser(Guid userId);
+    Task<Domain.User.User> GetUser(Guid userId);
 }

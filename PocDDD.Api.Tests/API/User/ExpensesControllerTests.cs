@@ -34,7 +34,7 @@ public class ExpensesControllerTests
     public async void BeSet()
     {
         var userId = new Guid();
-        var user = new Domain.User.PocDDDUser(userId, "RABY", "Julien", "EUR");
+        var user = new Domain.User.User(userId, "RABY", "Julien", "EUR");
         var expenses = new List<Expense> { new Expense(new Guid(), DateTime.Now.AddDays(-7), ExpenseType.Restaurant, 42, "EUR", "Repas de bienvenue") }.ToImmutableArray();
         var expenseToSave = new Expense(new Guid(), DateTime.Now.AddDays(-2), ExpenseType.Restaurant, 42, "EUR", "Repas");
 
@@ -51,7 +51,7 @@ public class ExpensesControllerTests
     {
         var userId = new Guid();
 
-        var user = new Domain.User.PocDDDUser(userId, "RABY", "Julien", "USD");
+        var user = new Domain.User.User(userId, "RABY", "Julien", "USD");
         var expenses = new List<Expense> { new Expense(new Guid(), DateTime.Now.AddDays(-2), ExpenseType.Restaurant, 33, "USD", "Repas x") }.ToImmutableArray();
 
         _mockExpenseRepository.Setup(_ => _.Get(userId)).ReturnsAsync(expenses);

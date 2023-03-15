@@ -11,7 +11,7 @@ namespace PocDDD.Api.Tests.API.User;
 internal sealed class ExpenseControllerBuilder
 {
     private ExpenseUserService _expenseUserService;
-    private PocDDDUserService _PocDDDUserService;
+    private UserService _PocDDDUserService;
     private IOptions<ApiConfiguration> _apiConfigurations;
     private Mock<IExpenseRepository> _mockExpenseRepository;
     private Mock<IUserRepository> _mockUserRepository;
@@ -37,7 +37,7 @@ internal sealed class ExpenseControllerBuilder
     public ExpenseController Build()
     {
         _expenseUserService = new ExpenseUserService(_mockExpenseRepository.Object, _mockUserRepository.Object);
-        _PocDDDUserService = new PocDDDUserService(_mockUserRepository.Object);
+        _PocDDDUserService = new UserService(_mockUserRepository.Object);
         return new ExpenseController(_apiConfigurations, _expenseUserService, _PocDDDUserService);
     }
 }

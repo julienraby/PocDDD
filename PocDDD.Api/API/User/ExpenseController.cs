@@ -15,9 +15,9 @@ public sealed class ExpenseController : ControllerBase
 {
     private readonly ApiConfiguration _apiConfiguration;
     private readonly IExpenseUserService _expenseUserService;
-    private readonly IPocDDDUserService _PocDDDUserService;
+    private readonly IUserService _PocDDDUserService;
 
-    public ExpenseController(IOptions<ApiConfiguration> apiConfiguration, IExpenseUserService expenseUserService, IPocDDDUserService PocDDDUserService)
+    public ExpenseController(IOptions<ApiConfiguration> apiConfiguration, IExpenseUserService expenseUserService, IUserService PocDDDUserService)
     {
         _apiConfiguration = apiConfiguration.Value;
         _expenseUserService = expenseUserService;
@@ -57,7 +57,7 @@ public sealed class ExpenseController : ControllerBase
     [SwaggerResponse(StatusCodes.Status401Unauthorized, description: "Unauthorized")]
     public async Task<IActionResult> SetExpenses([FromRoute][Required] Guid userId, Expense expense)
     {
-        var user = await _PocDDDUserService.GetPocDDDUser(userId);
+        var user = await _PocDDDUserService.GetUser(userId);
         if (user == null)
         {
             return StatusCode(StatusCodes.Status401Unauthorized);

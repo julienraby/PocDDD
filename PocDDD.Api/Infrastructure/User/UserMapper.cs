@@ -2,11 +2,11 @@
 
 namespace PocDDD.Api.Infrastructure.User;
 
-public sealed class PocDDDUserMapper
+public sealed class UserMapper
 {
-    public static PocDDDUser MapFromUserDto(UserDto userDto)
+    public static Domain.User.User MapFromUserDto(UserDto userDto)
     {
-        return new PocDDDUser(userDto.Id, 
+        return new Domain.User.User(userDto.Id, 
             userDto.LastName, 
             userDto.FirstName, 
             userDto.Currency);

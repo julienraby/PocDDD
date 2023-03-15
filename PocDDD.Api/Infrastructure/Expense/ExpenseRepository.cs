@@ -25,7 +25,7 @@ public class ExpenseRepository : IExpenseRepository
 
         if (userWithExpenses != null)
         {
-            var user = PocDDDUserMapper.MapFromUserDto(userWithExpenses);
+            var user = UserMapper.MapFromUserDto(userWithExpenses);
             expenses = userWithExpenses.Expenses.ConvertAll(ExpenseMapper.MapFromExpenseDto);
         }
 

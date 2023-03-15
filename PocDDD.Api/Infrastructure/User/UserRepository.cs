@@ -12,12 +12,12 @@ public class UserRepository : IUserRepository
         _appDbContext = appDbContext;
     }
 
-    public async Task<Domain.User.PocDDDUser?> Get(Guid userId)
+    public async Task<Domain.User.User?> Get(Guid userId)
     {
         var userDbo = await _appDbContext.Users.FindAsync(userId);
         if (userDbo != null)
         {
-            return PocDDDUserMapper.MapFromUserDto(userDbo);
+            return UserMapper.MapFromUserDto(userDbo);
         }
         else 
         { 

@@ -4,16 +4,16 @@ using PocDDD.Api.Domain.User;
 
 namespace PocDDD.Api.Application.User;
 
-public class PocDDDUserService : IPocDDDUserService
+public class UserService : IUserService
 {
     private readonly IUserRepository _userRepository;
 
-    public PocDDDUserService(IUserRepository userRepository)
+    public UserService(IUserRepository userRepository)
     {
         _userRepository = userRepository;
     }
 
-    public async Task<PocDDDUser> GetPocDDDUser(Guid userId)
+    public async Task<Domain.User.User> GetUser(Guid userId)
     {
         return await _userRepository.Get(userId);
     }

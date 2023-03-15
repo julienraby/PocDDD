@@ -10,6 +10,6 @@ public static class UserInjections
     public static void InjectUser(this WebApplicationBuilder webApplicationBuilder)
     {
         webApplicationBuilder.Services.AddScoped<IUserRepository, UserRepository>();
-        webApplicationBuilder.Services.AddScoped<IPocDDDUserService, PocDDDUserService>(); 
+        webApplicationBuilder.Services.AddScoped<IUserService, UserService>(); 
     }
 }

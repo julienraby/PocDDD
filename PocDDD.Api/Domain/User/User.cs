@@ -1,6 +1,6 @@
 ﻿namespace PocDDD.Api.Domain.User;
 
-public sealed record PocDDDUser(Guid Id, string LastName, string FirstName, string Currency)
+public sealed record User(Guid Id, string LastName, string FirstName, string Currency)
 {
     public override string ToString()
     {
